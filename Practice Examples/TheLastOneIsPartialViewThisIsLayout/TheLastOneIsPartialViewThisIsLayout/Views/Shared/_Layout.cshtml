@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout</title>
+</head>
+<body>
+    <table border="1" style="width:800px; font-family:Arial">
+        <tr>
+            <td>MENU</td>
+        </tr>
+        <tr>
+            <td style="text-align:center; background-color:orange; color:white">
+                <h3>WEBSITE HEADER</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>@RenderBody()</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center; font-family:Arial; font-size:x-small; background-color:orange; color:white;">
+                <h3>WEBSITE FOOTER</h3>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

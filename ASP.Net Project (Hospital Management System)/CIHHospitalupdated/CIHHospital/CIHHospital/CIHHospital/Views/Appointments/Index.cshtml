@@ -1,0 +1,40 @@
+﻿
+    @model CIHHospital.Models.Appointment1
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="appointment">
+    <div class="row ap">
+        <div class="col-lg-12">
+            <form class="appointmentform" action="#">
+                <h2>Appointment Form</h2>
+                <div class="form-row">
+                    <div class="col" id="collbl"><label class="col-form-label">Name:</label></div>
+                    <div class="col">
+                    @Html.TextBoxFor(model => model.Name, new { type="text", required = "required", @class="form-control"})
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col" id="collbl"><label class="col-form-label">Email:</label></div>
+                    <div class="col"><input class="form-control" type="text"></div>
+                </div>
+                <div class="form-row">
+                    <div class="col" id="collbl"><label class="col-form-label">Tel:</label></div>
+                    <div class="col"><input class="form-control" type="text"></div>
+                </div>
+                <div class="form-row">
+                    <div class="col" id="collbl"><label class="col-form-label">Doctor:</label></div>
+                    <div class="col"><input class="form-control" type="text"></div>
+                </div>
+                <div class="form-row">
+                    <div class="col" id="collbl"><label class="col-form-label">Date Time:</label></div>
+                    <div class="col" id="datetime"><input class="form-control" type="date"></div>
+                    <div class="col"><input class="form-control" type="time"></div>
+                </div><button class="btn btn-primary" type="button" id="appointmentbtn">Confirm</button>
+            </form>
+        </div>
+    </div>
+</div>
+

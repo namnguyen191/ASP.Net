@@ -1,0 +1,41 @@
+﻿@model CIHHospital.Models.Patient
+
+@{
+    ViewBag.Title = "CreateAccount";
+}
+
+<div class="header-main">
+    <h2>Create Account</h2>
+    <div class="header-bottom">
+        <div class="header-right w3agile">
+            <div class="header-left-bottom agileinfo">
+                <form action="#" method="post">
+                    <div class="icon1">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        @Html.TextBoxFor(model => model.First_Name, new { placeholder = "First Name", type = "text", required = "required" })
+                        @*<input type="text" placeholder="First Name" name="fname" required />*@
+                    </div>
+                    <div class="icon1">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        @Html.TextBoxFor(model => model.Last_Name, new { placeholder = "Last Name", type = "text", required = "required" })
+                        @*<input type="text" placeholder="Last Name" name="lname" required />*@
+                    </div>
+                    <div class="icon1">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        @Html.TextBoxFor(model => model.Email, new { placeholder = "Email", type = "email", required = "required" })
+                        @*<input type="email" placeholder="Your Email" name="email" required />*@
+                    </div>
+                    <div class="icon1">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        @Html.TextBoxFor(model => model.Password, new { placeholder = "Password", type = "password", required = "required" })
+                        @*<input type="password" placeholder="Password" name="password" required />*@
+                    </div>
+                    <div class="bottom">
+                        <input type="submit" value="Create account" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

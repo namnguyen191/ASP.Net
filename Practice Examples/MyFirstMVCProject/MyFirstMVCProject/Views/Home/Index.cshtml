@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Hello World</h2>
+<h1>This is my project</h1>
+<h1>The current date and time is: @ViewBag.DateMessage</h1>
+<h1>The date and time is again: @ViewData["CurrentDate"]</h1>
+<h1>List of countries</h1>
+<?php
+foreach(@ViewBag.Countries as $country){
+    echo $country;
+}
+?>
+<ul>
+    @foreach(string country in ViewBag.Countries)
+    {
+        <li>@country</li>
+    }
+</ul>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Lab7_Revised_.Models.Sale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>SALES</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pet_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Of_Sale)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pet_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Of_Sale)
+        </td>
+        <td>
+            @Html.ActionLink("Details Of Pet", "Details/" + item.Id, "Sold_Pet") |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

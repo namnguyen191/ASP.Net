@@ -1,0 +1,42 @@
+﻿@model Lab7.Models.sale
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>sale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOfSale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOfSale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pet.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pet.Id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

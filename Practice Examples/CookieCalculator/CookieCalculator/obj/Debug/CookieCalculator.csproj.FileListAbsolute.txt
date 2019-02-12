@@ -1,0 +1,9 @@
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\bin\CookieCalculator.dll.config
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\bin\CookieCalculator.dll
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\bin\CookieCalculator.pdb
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\obj\Debug\CookieCalculator.csprojResolveAssemblyReference.cache
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\obj\Debug\CookieCalculator.csproj.CoreCompileInputs.cache
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\obj\Debug\CookieCalculator.dll
+D:\Humber\ASP\VSProjects\CookieCalculator\CookieCalculator\obj\Debug\CookieCalculator.pdb

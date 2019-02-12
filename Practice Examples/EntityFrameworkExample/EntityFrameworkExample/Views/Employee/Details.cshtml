@@ -1,0 +1,32 @@
+﻿@model EntityFrameworkExample.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+</style>
+<h2>Employees' Details</h2>
+<table>
+    <tr>
+        <td><b>Employee ID</b></td>
+        <td><b>Employee Name</b></td>
+        <td><b>Employee Address</b></td>
+        <td><b>Employee Salary</b></td>
+    </tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td>@Model.Address</td>
+        <td>@Model.Salary</td>
+    </tr>
+</table>
+

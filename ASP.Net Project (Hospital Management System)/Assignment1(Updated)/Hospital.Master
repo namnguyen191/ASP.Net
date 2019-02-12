@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Hospital.master.cs" Inherits="Assignment1_Updated_.Hospital" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 141px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table class="auto-style1">
+                <tr>
+                    <td style="text-align:center" class="auto-style2">
+                        <asp:Image ID="imgLogo" runat="server" Height="64px" ImageUrl="~/Pictures/c3-healthcare-logo-hi.png" Width="103px" />
+                    </td>
+                    <td style="text-align:center"><h2>Welcome to Hospital Management System</h2></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center" class="auto-style2">
+                        <asp:HyperLink ID="linkAdmin" runat="server" NavigateUrl="~/Home Page.aspx">Home</asp:HyperLink>
+                    </td>
+                    <td style="vertical-align:top; text-align:left" rowspan="3">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center" class="auto-style2">
+                        <asp:HyperLink ID="linkContact" runat="server">Contact</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center" class="auto-style2">
+                        <asp:HyperLink ID="linkHome" runat="server">About Us</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        <asp:Image ID="imgCoppyRight" runat="server" Height="65px" ImageUrl="~/Pictures/copyright.jpg" />
+                    </td>
+                    <td><h3>2018 Computer Programming Course. All rights reserved.</h3></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

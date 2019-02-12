@@ -1,0 +1,86 @@
+﻿@model FinalProjectRevised.Models.customer
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Account Summary</title>
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta tags -->
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="~/CSS/jquery-ui.css" />
+    <link href="~/CSS/accountStyle.css" rel='stylesheet' type='text/css' />
+    <!-- //Stylesheet -->
+    <!--fonts-->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet">
+    <!--//fonts-->
+</head>
+
+<body>
+    <!--background-->
+    <h1>Your Account</h1>
+    <div class="register-form-w3layouts">
+        <!-- Form starts here -->
+        <form action="#" method="post">
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.passwrd)
+            <h3 class="sub-heading-agileits">Personal Details</h3>
+            <div class="main-flex-w3ls-sectns">
+                <div class="field-agileinfo-spc form-w3-agile-text1">
+                    @Html.TextBoxFor(model => model.fname, new { placeholder = "First Name", type = "text", required = "required", value = Model.fname })
+                </div>
+                <div class="field-agileinfo-spc form-w3-agile-text2">
+                    @Html.TextBoxFor(model => model.lname, new { placeholder = "Last Name", type = "text", required = "required", value = Model.lname })
+                </div>
+            </div>
+            <div class="main-flex-w3ls-sectns">
+                <div class="field-agileinfo-spc form-w3-agile-text1">
+                    @Html.TextBoxFor(model => model.email, new { placeholder = "Email", type = "email", required = "required", value = Model.email })
+                </div>
+                <div class="field-agileinfo-spc form-w3-agile-text2">
+                    @Html.TextBoxFor(model => model.phoneNo, new { placeholder = "Phone No", type = "text", value = Model.phoneNo })
+                </div>
+            </div>
+            <div class="main-flex-w3ls-sectns">
+                <div class="field-agileinfo-spc form-w3-agile-text2">
+                    @Html.TextBoxFor(model => model.address, new { placeholder = "Address", type = "text", value = Model.address })
+                </div>
+            </div>
+            <div class="clear"></div>
+            <h2 class="sub-heading-agileits">Your Order History</h2>
+            <div class="clear"></div>
+            <input type="submit" value="Save Changes">
+            <br />
+            <h1 style="color:white">@ViewBag.SaveMessage</h1>
+        <div class="clear"></div>
+        </form>
+        <!--// Form starts here -->
+    </div>
+    <!--copyright-->
+    <div class="copyright">
+        <p>
+            &copy; 2018 Aquarius Online Store .All Rights Reserved.
+        </p>
+    </div>
+    <!--//copyright-->
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+﻿@model CIHHospital.Models.Contact
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Contact Information</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <form action="Contact" method="post" id="contactForm">
+        <input class="form-control" type="hidden" name="Introduction" value="This email was sent from www.mywebsite.com"><input class="form-control" type="hidden" name="subject" value="My Contact Form"><input class="form-control" type="hidden" name="to"
+                                                                                                                                                                                                                 value="email@mywebsite.com">
+        <div class="form-row">
+            <div class="col-md-6">
+                <div id="successfail"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6" id="message">
+                <fieldset>
+                    <legend><i class="fa fa-envelope"></i> Contact Us</legend>
+                </fieldset>
+                <div class="form-group has-feedback">
+                    <label for="from_name">Name</label>
+                    @Html.TextBoxFor(model => model.Name, new { type = "text", required = "required", @class = "form-control", placeholder = "Name", tabindex = "-1", id = "modal_from_name" })
+                    @*<input class="form-control" type="text" name="from_name" required="" placeholder="Full Name" id="from_name" tabindex="-1">*@
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="from_email">Email</label>
+                    @Html.TextBoxFor(model => model.Email, new { type = "email", required = "required", @class = "form-control", placeholder = "Email Address", id = "modal_from_email" })
+                    @*<input class="form-control" type="email" name="from_email" required="" placeholder="Email Address" id="from_email">*@
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group has-feedback">
+                            <label for="from_phone">Phone</label>
+                            @Html.TextBoxFor(model => model.Phone, new { type = "text", required = "required", @class = "form-control", name = "from_phone", placeholder = "Primary Phone", id = "from_phone" })
+                            @*<input class="form-control" type="text" name="from_phone" placeholder="Primary Phone" id="from_phone">*@
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="calltime">Address</label>
+                            @Html.TextBoxFor(model => model.Address, new { @class="form-control", type = "text", required = "required", placeholder = "Address", name = "address" })
+                            @*<input id="address" class="form-control" placeholder="Address" name="address" type="text" />*@
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group"><label for="comments">Comments</label>
+                @Html.TextAreaFor(model => model.Comments, new { @class="form-control", rows="5", placeholder = "Enter comments here", id = "comments" })
+                @*<textarea class="form-control" rows="5" name="Comments" placeholder="Enter comments here" id="comments"></textarea>*@
+                </div>
+                <div class="form-group"><input type="submit" class="btn btn-primary btn-block" value="Send"/> 
+                <h3 style="color:green">@ViewBag.Message</h3>
+              </div>
+                <hr>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend> <i class="fa fa-location-arrow"></i> Locate Us</legend>
+                </fieldset>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="static-map"><a href="https://www.google.com/maps/place/Toronto+Western+Hospital/43.6534469,-79.4077018,17z/data=!3m1!4b1!4m5!3m4!1s0x882b348304dc662f:0x8496d3d9bf0a5f34!8m2!3d43.6534469!4d-79.4055131" target="_blank"><img src="~/img/download.png" class="img-fluid" /></a></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <fieldset>
+                            <legend><i class="fa fa-envelope"></i> Contact Us</legend>
+                        </fieldset>
+                        <div><span><strong>Name</strong></span></div>
+                        <div><span>CIHHospital@gmail.com</span></div>
+                        <div><span>www.cih.com</span></div>
+                        <hr>
+                    </div>
+                    <div class="col-sm-6">
+                        <fieldset>
+                            <legend><i class="fa fa-location-arrow"></i> Our Address</legend>
+                        </fieldset>
+                        <div><span><strong>Office Name</strong></span></div>
+                        <div><span>399 Bathurst St</span></div>
+                        <div><span>Toronto, ON M582S8</span></div><span>(416)-603-2581</span>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

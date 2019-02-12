@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EntityFrameworkExample.Models.Employee>
+@using EntityFrameworkExample.Models
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Emplyees List</h2>
+@*<table>
+    @foreach (Employee employee in Model)
+    {
+        <tr>
+            <td><b>Employee ID</b></td>
+            <td><b>Employee Name</b></td>
+            <td><b>Employee Address</b></td>
+            <td><b>Employee Salary</b></td>
+        </tr>
+        <tr>
+            <td>@employee.Id</td>
+            <td>@employee.Name</td>
+            <td>@employee.Address</td>
+            <td>@employee.Salary</td>
+        </tr>
+    }
+</table>*@
+<ul>
+    @foreach(Employee employee in Model)
+    {
+        <li>
+            @Html.ActionLink(employee.Name, "Details", new { id = employee.Id})
+        </li>
+    }
+</ul>
+@Html.ActionLink("Back To List", "Index", "Department")

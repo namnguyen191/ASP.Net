@@ -1,0 +1,53 @@
+﻿@model Lab7.Models.soldPet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sold Pet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Category ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryId)
+        </dd>
+
+        <dt>
+            Birth Date
+        </dt>
+
+        <dd>
+            @Convert.ToString(string.Format("{0:yyyy/MM/dd}", Model.birthDate))
+        </dd>
+
+        <dt>
+            Gender
+        </dt>
+
+           @if ((bool)Model.gender)
+           {
+               <dd>Male</dd>
+           } else
+           {
+               <dd>Female</dd>
+           }
+
+        <dt>
+            Price
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back To List", "Index", "soldPets")
+</p>

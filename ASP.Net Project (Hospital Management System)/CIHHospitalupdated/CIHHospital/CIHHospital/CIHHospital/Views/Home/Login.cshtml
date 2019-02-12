@@ -1,0 +1,24 @@
+﻿@model CIHHospital.Models.Patient
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <h1 style="color:black">Patient Login</h1>
+    <form action="Login" method="post">
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Enter Email", type = "email", required = "required" })
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Enter Password", type = "password", required = "required" })
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+    </form>
+    <h3 style="color:red">@ViewBag.ErrorMessage</h3>
+ 
+</div>
+    
+
+
+

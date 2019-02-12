@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea03d001126a4c02bdd8879a536c28f3" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.Appointment" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Doctor" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Emergency_Contact" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Patient" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK__Appointme__Docto__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Appointme__Patie__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Emergency__Patie__276EDEB3" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Database1Model.Appointment1" Width="1.5" PointX="3" PointY="9.625" />
+        <AssociationConnector Association="Database1Model.FK__Appointme__Docto__36B12243" />
+        <EntityTypeShape EntityType="Database1Model.Contact" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

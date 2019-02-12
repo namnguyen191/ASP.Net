@@ -1,0 +1,41 @@
+﻿@model MVCValidation.Models.User
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add User</h2>
+
+@using (Html.BeginForm())
+{
+<div>
+    <div>
+        @Html.LabelFor(x => x.FirsName)
+        @Html.TextBoxFor(x => x.FirsName)
+        @Html.ValidationMessageFor(x => x.FirsName, "", new { style = "color:red" })
+        <br /><br />
+    </div>
+    <div>
+        @Html.LabelFor(x => x.LastName)
+        @Html.TextBoxFor(x => x.LastName)
+        @Html.ValidationMessageFor(x => x.LastName, "", new { style = "color:red" })
+        <br /><br />
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email)
+        @Html.ValidationMessageFor(x => x.Email, "", new { style = "color:red" })
+        <br /><br />
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Salary)
+        @Html.TextBoxFor(x => x.Salary)
+        @Html.ValidationMessageFor(x => x.Salary, "", new { style = "color:red" })
+        <br /><br />
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</div>
+}
+

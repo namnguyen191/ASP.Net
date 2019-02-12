@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Lab7.Models.pet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>PETS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Category Id
+        </th>
+        <th>
+            Birth Date
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Price
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoryId)
+        </td>
+        <td>
+            @Convert.ToString(string.Format("{0:yyyy/MM/dd}", item.birthDate))
+        </td>
+            @if(item.gender)
+            {
+                <td>Male</td>
+            } else
+            {
+                <td>Female</td>
+            }
+        <td>
+            @Html.DisplayFor(modelItem => item.price)$
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

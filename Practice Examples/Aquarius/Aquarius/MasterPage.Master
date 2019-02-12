@@ -1,0 +1,57 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterPage.master.vb" Inherits="Aquarius.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Online Aquarium Service</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="icon" href="/Pictures/AquariusLogo.png" />
+    <style>
+        footer {
+            background-color: #00FFFF;
+            color: black;
+            padding: 15px;
+            }
+
+        body  {
+            background-image: url("/Pictures/background.jpg");
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Aquarius</a> 
+            </div><!--End of navbar-header-->
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Your Account</a></li>
+                <li><a href="#">Return Policy</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div><!--End of container-fluid-->
+    </nav>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>   
+    <footer class="container-fluid">
+        <h6>About Us</h6>
+            <p>
+                We are the world leading  aquarium supplier. We carry pond supplies, fish food and aquarius accessories from highly
+                respected brands that will guarantee satisfaction for you and your pet. Our live stocks are from clean and sustainable
+                sources which are all under strict quality control to ensure that everything you got from us is healthy and disease free.
+            </p>
+    </footer>
+</body>
+</html>

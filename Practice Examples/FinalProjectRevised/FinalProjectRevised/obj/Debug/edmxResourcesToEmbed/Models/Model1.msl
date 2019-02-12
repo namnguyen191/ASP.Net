@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="ContextClass">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="DataModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="DataModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="passwrd" ColumnName="passwrd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="DataModel.order">
+        <MappingFragment StoreEntitySet="order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="custId" ColumnName="custId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="paymentInfo" ColumnName="paymentInfo" />
+          <ScalarProperty Name="total" ColumnName="total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderItems">
+      <EntityTypeMapping TypeName="DataModel.orderItem">
+        <MappingFragment StoreEntitySet="orderItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paymentInfoes">
+      <EntityTypeMapping TypeName="DataModel.paymentInfo">
+        <MappingFragment StoreEntitySet="paymentInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="custId" ColumnName="custId" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="cardNo" ColumnName="cardNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="DataModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ratings">
+      <EntityTypeMapping TypeName="DataModel.rating">
+        <MappingFragment StoreEntitySet="rating">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="C1_star" ColumnName="1_star" />
+          <ScalarProperty Name="C2_star" ColumnName="2_star" />
+          <ScalarProperty Name="C3_star" ColumnName="3_star" />
+          <ScalarProperty Name="C4_star" ColumnName="4_star" />
+          <ScalarProperty Name="C5_star" ColumnName="5_star" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

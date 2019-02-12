@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetStoreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pets" Relationship="Self.FK__pet__categoryId__2D27B809" FromRole="category" ToRole="pet" />
+    <NavigationProperty Name="soldPets" Relationship="Self.FK__soldPets__catego__33D4B598" FromRole="category" ToRole="soldPets" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telephoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="sales" Relationship="Self.FK__sales__customerI__300424B4" FromRole="customer" ToRole="sales" />
+  </EntityType>
+  <EntityType Name="pet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryId" Type="Int32" />
+    <Property Name="birthDate" Type="DateTime" Precision="0" />
+    <Property Name="gender" Type="Boolean" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="category" Relationship="Self.FK__pet__categoryId__2D27B809" FromRole="pet" ToRole="category" />
+    <NavigationProperty Name="sales" Relationship="Self.FK__sales__petId__30F848ED" FromRole="pet" ToRole="sales" />
+  </EntityType>
+  <EntityType Name="sale">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customerId" Type="Int32" />
+    <Property Name="petId" Type="Int32" />
+    <Property Name="dateOfSale" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="customer" Relationship="Self.FK__sales__customerI__300424B4" FromRole="sales" ToRole="customer" />
+    <NavigationProperty Name="pet" Relationship="Self.FK__sales__petId__30F848ED" FromRole="sales" ToRole="pet" />
+  </EntityType>
+  <EntityType Name="soldPet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryId" Type="Int32" />
+    <Property Name="birthDate" Type="DateTime" Precision="0" />
+    <Property Name="gender" Type="Boolean" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="category" Relationship="Self.FK__soldPets__catego__33D4B598" FromRole="soldPets" ToRole="category" />
+  </EntityType>
+  <Association Name="FK__pet__categoryId__2D27B809">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="pet" Type="Self.pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="pet">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__soldPets__catego__33D4B598">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="soldPets" Type="Self.soldPet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="soldPets">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sales__customerI__300424B4">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="sales" Type="Self.sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sales">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sales__petId__30F848ED">
+    <End Role="pet" Type="Self.pet" Multiplicity="0..1" />
+    <End Role="sales" Type="Self.sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sales">
+        <PropertyRef Name="petId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ContextClass" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="pets" EntityType="Self.pet" />
+    <EntitySet Name="sales" EntityType="Self.sale" />
+    <EntitySet Name="soldPets" EntityType="Self.soldPet" />
+    <AssociationSet Name="FK__pet__categoryId__2D27B809" Association="Self.FK__pet__categoryId__2D27B809">
+      <End Role="category" EntitySet="categories" />
+      <End Role="pet" EntitySet="pets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__soldPets__catego__33D4B598" Association="Self.FK__soldPets__catego__33D4B598">
+      <End Role="category" EntitySet="categories" />
+      <End Role="soldPets" EntitySet="soldPets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sales__customerI__300424B4" Association="Self.FK__sales__customerI__300424B4">
+      <End Role="customer" EntitySet="customers" />
+      <End Role="sales" EntitySet="sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sales__petId__30F848ED" Association="Self.FK__sales__petId__30F848ED">
+      <End Role="pet" EntitySet="pets" />
+      <End Role="sales" EntitySet="sales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

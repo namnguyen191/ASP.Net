@@ -1,0 +1,33 @@
+﻿@model MyFirstMVCProject.Models.Employees
+
+@{
+    ViewBag.Title = "Detail";
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+
+    th {
+        text-align: left;
+    }
+</style>
+<h2>Employees' Details: </h2>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td>@Model.Address</td>
+    </tr>
+</table>
+

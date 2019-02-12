@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetStoreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="telephoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="pet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryId" Type="int" />
+    <Property Name="birthDate" Type="date" />
+    <Property Name="gender" Type="bit" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="petId" Type="int" />
+    <Property Name="dateOfSale" Type="date" />
+  </EntityType>
+  <EntityType Name="soldPets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryId" Type="int" />
+    <Property Name="birthDate" Type="date" />
+    <Property Name="gender" Type="bit" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK__pet__categoryId__2D27B809">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="pet" Type="Self.pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="pet">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sales__customerI__300424B4">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="sales" Type="Self.sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sales">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sales__petId__30F848ED">
+    <End Role="pet" Type="Self.pet" Multiplicity="0..1" />
+    <End Role="sales" Type="Self.sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="sales">
+        <PropertyRef Name="petId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__soldPets__catego__33D4B598">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="soldPets" Type="Self.soldPets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="soldPets">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PetStoreDBModelStoreContainer">
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pet" EntityType="Self.pet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sales" EntityType="Self.sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="soldPets" EntityType="Self.soldPets" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__pet__categoryId__2D27B809" Association="Self.FK__pet__categoryId__2D27B809">
+      <End Role="category" EntitySet="category" />
+      <End Role="pet" EntitySet="pet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sales__customerI__300424B4" Association="Self.FK__sales__customerI__300424B4">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="sales" EntitySet="sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sales__petId__30F848ED" Association="Self.FK__sales__petId__30F848ED">
+      <End Role="pet" EntitySet="pet" />
+      <End Role="sales" EntitySet="sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__soldPets__catego__33D4B598" Association="Self.FK__soldPets__catego__33D4B598">
+      <End Role="category" EntitySet="category" />
+      <End Role="soldPets" EntitySet="soldPets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

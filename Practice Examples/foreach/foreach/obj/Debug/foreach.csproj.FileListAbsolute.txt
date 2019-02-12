@@ -1,0 +1,10 @@
+D:\Humber\ASP\VSProjects\foreach\foreach\bin\Debug\@foreach.exe.config
+D:\Humber\ASP\VSProjects\foreach\foreach\bin\Debug\@foreach.exe
+D:\Humber\ASP\VSProjects\foreach\foreach\bin\Debug\@foreach.pdb
+D:\Humber\ASP\VSProjects\foreach\foreach\obj\Debug\foreach.csprojResolveAssemblyReference.cache
+D:\Humber\ASP\VSProjects\foreach\foreach\obj\Debug\foreach.Form1.resources
+D:\Humber\ASP\VSProjects\foreach\foreach\obj\Debug\foreach.Properties.Resources.resources
+D:\Humber\ASP\VSProjects\foreach\foreach\obj\Debug\foreach.csproj.GenerateResource.Cache
+D:\Humber\ASP\VSProjects\foreach\foreach\obj\Debug\foreach.csproj.CoreCompileInputs.cache
+D:\Humber\ASP\VSProjects\foreach\foreach\obj\Debug\@foreach.exe
+D:\Humber\ASP\VSProjects\foreach\foreach\obj\Debug\@foreach.pdb

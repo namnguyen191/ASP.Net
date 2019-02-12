@@ -1,0 +1,9 @@
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\bin\ApointmentSystemTest.dll.config
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\bin\ApointmentSystemTest.dll
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\bin\ApointmentSystemTest.pdb
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\obj\Debug\ApointmentSystemTest.csprojResolveAssemblyReference.cache
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\obj\Debug\ApointmentSystemTest.csproj.CoreCompileInputs.cache
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\obj\Debug\ApointmentSystemTest.dll
+D:\Humber\ASP\VSProjects\ApointmentSystemTest\ApointmentSystemTest\obj\Debug\ApointmentSystemTest.pdb

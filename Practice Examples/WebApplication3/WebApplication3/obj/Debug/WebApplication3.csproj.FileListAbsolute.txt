@@ -1,0 +1,9 @@
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\bin\WebApplication3.dll.config
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\bin\WebApplication3.dll
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\bin\WebApplication3.pdb
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csprojResolveAssemblyReference.cache
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csproj.CoreCompileInputs.cache
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
+D:\Humber\ASP\VSProjects\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb

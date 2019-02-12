@@ -1,0 +1,10 @@
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\bin\Debug\CakeStore.exe.config
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\bin\Debug\CakeStore.exe
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\bin\Debug\CakeStore.pdb
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\obj\Debug\CakeStore.csprojResolveAssemblyReference.cache
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\obj\Debug\CakeStore.Form1.resources
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\obj\Debug\CakeStore.Properties.Resources.resources
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\obj\Debug\CakeStore.csproj.GenerateResource.Cache
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\obj\Debug\CakeStore.csproj.CoreCompileInputs.cache
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\obj\Debug\CakeStore.exe
+D:\Humber\ASP\VSProjects\CakeStore\CakeStore\obj\Debug\CakeStore.pdb

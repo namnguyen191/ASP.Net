@@ -1,0 +1,10 @@
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\bin\WebApplication2.dll.config
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\bin\WebApplication2.dll
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\bin\WebApplication2.pdb
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.csproj.CoreCompileInputs.cache
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
+D:\Humber\ASP\VSProjects\WebApplication2\WebApplication2\bin\AspNet.ScriptManager.jQuery.dll

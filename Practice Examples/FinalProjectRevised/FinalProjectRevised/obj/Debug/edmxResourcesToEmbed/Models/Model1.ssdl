@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fname" Type="varchar" MaxLength="50" />
+    <Property Name="lname" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="phoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="passwrd" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="custId" Type="int" />
+    <Property Name="date" Type="date" />
+    <Property Name="paymentInfo" Type="int" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="orderItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderId" Type="int" />
+    <Property Name="productId" Type="int" />
+    <Property Name="qty" Type="int" />
+  </EntityType>
+  <EntityType Name="paymentInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="custId" Type="int" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="cardNo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="qty" Type="int" />
+    <Property Name="desc" Type="varchar(max)" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="categoryId" Type="int" />
+  </EntityType>
+  <EntityType Name="rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" />
+    <Property Name="1_star" Type="int" />
+    <Property Name="2_star" Type="int" />
+    <Property Name="3_star" Type="int" />
+    <Property Name="4_star" Type="int" />
+    <Property Name="5_star" Type="int" />
+  </EntityType>
+  <Association Name="FK__order__custId__2C3393D0">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="order" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="custId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__order__paymentIn__2D27B809">
+    <End Role="paymentInfo" Type="Self.paymentInfo" Multiplicity="0..1" />
+    <End Role="order" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paymentInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="paymentInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orderItem__order__33D4B598">
+    <End Role="order" Type="Self.order" Multiplicity="0..1" />
+    <End Role="orderItems" Type="Self.orderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderItems">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orderItem__produ__34C8D9D1">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="orderItems" Type="Self.orderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderItems">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__paymentIn__custI__2E1BDC42">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="paymentInfo" Type="Self.paymentInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="paymentInfo">
+        <PropertyRef Name="custId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__categor__276EDEB3">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__rating__productI__30F848ED">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="rating" Type="Self.rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="rating">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="orderItems" EntityType="Self.orderItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="paymentInfo" EntityType="Self.paymentInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rating" EntityType="Self.rating" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__order__custId__2C3393D0" Association="Self.FK__order__custId__2C3393D0">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="order" EntitySet="order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__order__paymentIn__2D27B809" Association="Self.FK__order__paymentIn__2D27B809">
+      <End Role="paymentInfo" EntitySet="paymentInfo" />
+      <End Role="order" EntitySet="order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orderItem__order__33D4B598" Association="Self.FK__orderItem__order__33D4B598">
+      <End Role="order" EntitySet="order" />
+      <End Role="orderItems" EntitySet="orderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orderItem__produ__34C8D9D1" Association="Self.FK__orderItem__produ__34C8D9D1">
+      <End Role="product" EntitySet="product" />
+      <End Role="orderItems" EntitySet="orderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__paymentIn__custI__2E1BDC42" Association="Self.FK__paymentIn__custI__2E1BDC42">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="paymentInfo" EntitySet="paymentInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__categor__276EDEB3" Association="Self.FK__product__categor__276EDEB3">
+      <End Role="category" EntitySet="category" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__rating__productI__30F848ED" Association="Self.FK__rating__productI__30F848ED">
+      <End Role="product" EntitySet="product" />
+      <End Role="rating" EntitySet="rating" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

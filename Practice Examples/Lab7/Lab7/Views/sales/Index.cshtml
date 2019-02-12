@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Lab7.Models.sale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>SALES</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Customer ID
+        </th>
+        <th>
+            Pet ID
+        </th>
+        <th>
+            Date Of Sale
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.petId)
+        </td>
+        <td>
+            @Convert.ToString(string.Format("{0:yyyy/MM/dd}", item.dateOfSale))
+        </td>
+        <td>
+            @Html.ActionLink("Details Of Pet", "Details/"+item.Id, "soldPets") |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

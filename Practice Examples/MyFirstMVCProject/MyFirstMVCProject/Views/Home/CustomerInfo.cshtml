@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MyFirstMVCProject.Models.Customers>
+    @using MyFirstMVCProject.Models;
+
+@{
+    ViewBag.Title = "Customer Details";
+}
+
+<h2>Customer Details</h2>
+@foreach(Customers customer in Model)
+{
+    <p>The Id is: @customer.Id</p><br />
+    <p>The name is: @customer.Name</p><br />
+    <p>The amount is: @customer.Amount</p>
+}

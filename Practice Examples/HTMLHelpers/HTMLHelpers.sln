@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HTMLHelpers", "HTMLHelpers\", "{D0B5362C-DE7C-4524-AD02-81ED5175F58F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52927"
+		Debug.AspNetCompiler.PhysicalPath = "HTMLHelpers\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52927\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52927"
+		Release.AspNetCompiler.PhysicalPath = "HTMLHelpers\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52927\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52927"
+		SlnRelativePath = "HTMLHelpers\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0B5362C-DE7C-4524-AD02-81ED5175F58F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B5362C-DE7C-4524-AD02-81ED5175F58F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E009235-946F-4C88-B69A-3DA3DD0339C9}
+	EndGlobalSection
+EndGlobal

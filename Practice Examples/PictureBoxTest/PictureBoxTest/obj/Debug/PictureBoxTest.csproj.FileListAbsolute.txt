@@ -1,0 +1,10 @@
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\bin\Debug\PictureBoxTest.exe.config
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\bin\Debug\PictureBoxTest.exe
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\bin\Debug\PictureBoxTest.pdb
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\obj\Debug\PictureBoxTest.csprojResolveAssemblyReference.cache
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\obj\Debug\PictureBoxTest.Form1.resources
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\obj\Debug\PictureBoxTest.Properties.Resources.resources
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\obj\Debug\PictureBoxTest.csproj.GenerateResource.Cache
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\obj\Debug\PictureBoxTest.csproj.CoreCompileInputs.cache
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\obj\Debug\PictureBoxTest.exe
+D:\Humber\ASP\VSProjects\PictureBoxTest\PictureBoxTest\obj\Debug\PictureBoxTest.pdb

@@ -1,0 +1,10 @@
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\bin\A1NamNguyen.dll.config
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\bin\A1NamNguyen.dll
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\bin\A1NamNguyen.pdb
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\obj\Debug\A1NamNguyen.csprojResolveAssemblyReference.cache
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\obj\Debug\A1NamNguyen.csproj.CoreCompileInputs.cache
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\obj\Debug\A1NamNguyen.dll
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\obj\Debug\A1NamNguyen.pdb
+D:\Humber\ASP\VSProjects\A1NamNguyen\A1NamNguyen\bin\AspNet.ScriptManager.jQuery.dll

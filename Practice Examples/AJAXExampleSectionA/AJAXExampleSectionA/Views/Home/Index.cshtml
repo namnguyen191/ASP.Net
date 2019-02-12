@@ -1,0 +1,33 @@
+﻿@model AJAXExampleSectionA.Models.Student
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Students.cshtml";
+}
+
+<h2>Students</h2>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+@Ajax.ActionLink("All", "All", new AjaxOptions
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "divStudents",
+    InsertionMode = InsertionMode.Replace
+})
+<span style="color:blue">|</span>
+@Ajax.ActionLink("Top 3", "TopThree", new AjaxOptions
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "divStudents",
+    InsertionMode = InsertionMode.Replace
+})
+<span style="color:blue">|</span>
+@Ajax.ActionLink("Bottom 3", "BottomThree", new AjaxOptions
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "divStudents",
+    InsertionMode = InsertionMode.Replace
+})
+<div id="divStudents">
+</div>

@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<LayoutTest.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@foreach(var item in Model)
+{
+    @Html.Partial("_Employee", item)
+}

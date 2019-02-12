@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fname" Type="varchar" MaxLength="50" />
+          <Property Name="lname" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="phoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="passwrd" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="custId" Type="int" />
+          <Property Name="date" Type="date" />
+          <Property Name="paymentInfo" Type="int" />
+          <Property Name="total" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="orderItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderId" Type="int" />
+          <Property Name="productId" Type="int" />
+          <Property Name="qty" Type="int" />
+        </EntityType>
+        <EntityType Name="paymentInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="custId" Type="int" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="cardNo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="qty" Type="int" />
+          <Property Name="desc" Type="varchar(max)" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="categoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="1_star" Type="int" />
+          <Property Name="2_star" Type="int" />
+          <Property Name="3_star" Type="int" />
+          <Property Name="4_star" Type="int" />
+          <Property Name="5_star" Type="int" />
+        </EntityType>
+        <Association Name="FK__order__custId__2C3393D0">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="custId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order__paymentIn__2D27B809">
+          <End Role="paymentInfo" Type="Self.paymentInfo" Multiplicity="0..1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paymentInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="paymentInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__orderItem__order__33D4B598">
+          <End Role="order" Type="Self.order" Multiplicity="0..1" />
+          <End Role="orderItems" Type="Self.orderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderItems">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__orderItem__produ__34C8D9D1">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="orderItems" Type="Self.orderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderItems">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__paymentIn__custI__2E1BDC42">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="paymentInfo" Type="Self.paymentInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="paymentInfo">
+              <PropertyRef Name="custId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__product__categor__276EDEB3">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__rating__productI__30F848ED">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="rating" Type="Self.rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="rating">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataModelStoreContainer">
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderItems" EntityType="Self.orderItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paymentInfo" EntityType="Self.paymentInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rating" EntityType="Self.rating" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__order__custId__2C3393D0" Association="Self.FK__order__custId__2C3393D0">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order__paymentIn__2D27B809" Association="Self.FK__order__paymentIn__2D27B809">
+            <End Role="paymentInfo" EntitySet="paymentInfo" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__orderItem__order__33D4B598" Association="Self.FK__orderItem__order__33D4B598">
+            <End Role="order" EntitySet="order" />
+            <End Role="orderItems" EntitySet="orderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__orderItem__produ__34C8D9D1" Association="Self.FK__orderItem__produ__34C8D9D1">
+            <End Role="product" EntitySet="product" />
+            <End Role="orderItems" EntitySet="orderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__paymentIn__custI__2E1BDC42" Association="Self.FK__paymentIn__custI__2E1BDC42">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="paymentInfo" EntitySet="paymentInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__product__categor__276EDEB3" Association="Self.FK__product__categor__276EDEB3">
+            <End Role="category" EntitySet="category" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__rating__productI__30F848ED" Association="Self.FK__rating__productI__30F848ED">
+            <End Role="product" EntitySet="product" />
+            <End Role="rating" EntitySet="rating" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="products" Relationship="Self.FK__product__categor__276EDEB3" FromRole="category" ToRole="product" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="passwrd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="orders" Relationship="Self.FK__order__custId__2C3393D0" FromRole="customer" ToRole="order" />
+          <NavigationProperty Name="paymentInfoes" Relationship="Self.FK__paymentIn__custI__2E1BDC42" FromRole="customer" ToRole="paymentInfo" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="custId" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="paymentInfo" Type="Int32" />
+          <Property Name="total" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__order__custId__2C3393D0" FromRole="order" ToRole="customer" />
+          <NavigationProperty Name="paymentInfo1" Relationship="Self.FK__order__paymentIn__2D27B809" FromRole="order" ToRole="paymentInfo" />
+          <NavigationProperty Name="orderItems" Relationship="Self.FK__orderItem__order__33D4B598" FromRole="order" ToRole="orderItems" />
+        </EntityType>
+        <EntityType Name="orderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderId" Type="Int32" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="qty" Type="Int32" />
+          <NavigationProperty Name="order" Relationship="Self.FK__orderItem__order__33D4B598" FromRole="orderItems" ToRole="order" />
+          <NavigationProperty Name="product" Relationship="Self.FK__orderItem__produ__34C8D9D1" FromRole="orderItems" ToRole="product" />
+        </EntityType>
+        <EntityType Name="paymentInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="custId" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__paymentIn__custI__2E1BDC42" FromRole="paymentInfo" ToRole="customer" />
+          <NavigationProperty Name="orders" Relationship="Self.FK__order__paymentIn__2D27B809" FromRole="paymentInfo" ToRole="order" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="categoryId" Type="Int32" />
+          <NavigationProperty Name="category" Relationship="Self.FK__product__categor__276EDEB3" FromRole="product" ToRole="category" />
+          <NavigationProperty Name="orderItems" Relationship="Self.FK__orderItem__produ__34C8D9D1" FromRole="product" ToRole="orderItems" />
+          <NavigationProperty Name="ratings" Relationship="Self.FK__rating__productI__30F848ED" FromRole="product" ToRole="rating" />
+        </EntityType>
+        <EntityType Name="rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productId" Type="Int32" />
+          <Property Name="C1_star" Type="Int32" />
+          <Property Name="C2_star" Type="Int32" />
+          <Property Name="C3_star" Type="Int32" />
+          <Property Name="C4_star" Type="Int32" />
+          <Property Name="C5_star" Type="Int32" />
+          <NavigationProperty Name="product" Relationship="Self.FK__rating__productI__30F848ED" FromRole="rating" ToRole="product" />
+        </EntityType>
+        <Association Name="FK__product__categor__276EDEB3">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order__custId__2C3393D0">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="custId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__paymentIn__custI__2E1BDC42">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="paymentInfo" Type="Self.paymentInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="paymentInfo">
+              <PropertyRef Name="custId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__order__paymentIn__2D27B809">
+          <End Role="paymentInfo" Type="Self.paymentInfo" Multiplicity="0..1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paymentInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="paymentInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__orderItem__order__33D4B598">
+          <End Role="order" Type="Self.order" Multiplicity="0..1" />
+          <End Role="orderItems" Type="Self.orderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderItems">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__orderItem__produ__34C8D9D1">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="orderItems" Type="Self.orderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderItems">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__rating__productI__30F848ED">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="rating" Type="Self.rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="rating">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ContextClass" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="orderItems" EntityType="Self.orderItem" />
+          <EntitySet Name="paymentInfoes" EntityType="Self.paymentInfo" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="ratings" EntityType="Self.rating" />
+          <AssociationSet Name="FK__product__categor__276EDEB3" Association="Self.FK__product__categor__276EDEB3">
+            <End Role="category" EntitySet="categories" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order__custId__2C3393D0" Association="Self.FK__order__custId__2C3393D0">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="order" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__paymentIn__custI__2E1BDC42" Association="Self.FK__paymentIn__custI__2E1BDC42">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="paymentInfo" EntitySet="paymentInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__order__paymentIn__2D27B809" Association="Self.FK__order__paymentIn__2D27B809">
+            <End Role="paymentInfo" EntitySet="paymentInfoes" />
+            <End Role="order" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__orderItem__order__33D4B598" Association="Self.FK__orderItem__order__33D4B598">
+            <End Role="order" EntitySet="orders" />
+            <End Role="orderItems" EntitySet="orderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__orderItem__produ__34C8D9D1" Association="Self.FK__orderItem__produ__34C8D9D1">
+            <End Role="product" EntitySet="products" />
+            <End Role="orderItems" EntitySet="orderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__rating__productI__30F848ED" Association="Self.FK__rating__productI__30F848ED">
+            <End Role="product" EntitySet="products" />
+            <End Role="rating" EntitySet="ratings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="ContextClass">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="DataModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="DataModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phoneNo" ColumnName="phoneNo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="passwrd" ColumnName="passwrd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="DataModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="custId" ColumnName="custId" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="paymentInfo" ColumnName="paymentInfo" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderItems">
+            <EntityTypeMapping TypeName="DataModel.orderItem">
+              <MappingFragment StoreEntitySet="orderItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paymentInfoes">
+            <EntityTypeMapping TypeName="DataModel.paymentInfo">
+              <MappingFragment StoreEntitySet="paymentInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="custId" ColumnName="custId" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="cardNo" ColumnName="cardNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="DataModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ratings">
+            <EntityTypeMapping TypeName="DataModel.rating">
+              <MappingFragment StoreEntitySet="rating">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="C1_star" ColumnName="1_star" />
+                <ScalarProperty Name="C2_star" ColumnName="2_star" />
+                <ScalarProperty Name="C3_star" ColumnName="3_star" />
+                <ScalarProperty Name="C4_star" ColumnName="4_star" />
+                <ScalarProperty Name="C5_star" ColumnName="5_star" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

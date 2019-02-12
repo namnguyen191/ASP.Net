@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PetStoreDBModelStoreContainer" CdmEntityContainer="ContextClass">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="PetStoreDBModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="PetStoreDBModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="telephoneNo" ColumnName="telephoneNo" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pets">
+      <EntityTypeMapping TypeName="PetStoreDBModel.pet">
+        <MappingFragment StoreEntitySet="pet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sales">
+      <EntityTypeMapping TypeName="PetStoreDBModel.sale">
+        <MappingFragment StoreEntitySet="sales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="petId" ColumnName="petId" />
+          <ScalarProperty Name="dateOfSale" ColumnName="dateOfSale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="soldPets">
+      <EntityTypeMapping TypeName="PetStoreDBModel.soldPet">
+        <MappingFragment StoreEntitySet="soldPets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
